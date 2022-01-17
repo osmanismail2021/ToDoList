@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deneme 1</title>
+</head>
+<body>
+
+<input type="text" id="telefon">
+<select name="" id="operator">
+    <option value="0">seciniz</option>
+    <option value="1">Turkcell</option>
+    <option value="2">Vodafone</option>
+    <option value="3">TurkTelekom</option>
+</select>
+<input type="button" value="KONTROL" id="btn">
+
+
+<style type="text/css">
+    .uyari{
+        background: red;
+        color: white;
+        font-weight: bold;
+    }
+
+    .aferin{
+        background: green;
+        color: white;
+        font-weight: bold;
+    }
+
+
+</style>
+
+
+
+<script type="application/javascript">
+
+    let btn = document.getElementById("btn")
+    btn.addEventListener("click", function(){
+        let tel = document.getElementById("telefon")
+        uzunluk = tel.value.length
+
+    
+
+        if(uzunluk == 0){
+            alert("bos birakilamaz")
+        } else if(uzunluk < 10){
+            alert("telefon numarasi min 10 karakter olmalidir")
+        } else if(uzunluk > 10){
+            alert("telefon numarasi max 10 karakter olmalidir")
+        } else {
+            // alert("telefon numarasi dogru")
+            let operator = document.getElementById("operator")
+            if(operator.value == 0){
+                alert("lutfen operator seciniz")
+            }   
+
+            
+        }
+
+        
+        if(tel.value == "0000000000"){
+            alert('Bu ne bicim telefon')
+            tel.classList.add("uyari")
+        }
+
+        if(operator.value == "1"){
+            alert('Paran cok galiba agaaaa')
+            tel.classList.remove("uyari")
+        }
+
+        if(operator.value == "3"){
+            tel.classList.add("aferin")
+        }
+
+        if(operator.value != "3")
+        tel.classList.remove("aferin")
+
+        //butona basildiginda eger operator turktelekomsa numara textboxena aferin stilini ekle
+
+       
+        
+    })
+    
+    
+</script>
+
+
+</body>
+</html>
