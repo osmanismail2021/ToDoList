@@ -205,6 +205,7 @@ body {
 }
 
 
+
 .binmarkcont.nothing {
   display: none;
 }
@@ -216,8 +217,9 @@ body {
 
 img.binmark {
   position : absolute;
-  margin-left: 580px;
+  margin-left: 560px;
   margin-top: -60px;
   
 }
+
 
