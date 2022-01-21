@@ -1,3 +1,4 @@
+//nesne atama. kayit ekleme. inputa girilen degeri ekleme//
 function addItem(event){  // fonksiyon olusturuldu
     event.preventDefault(); //event.preventDefault ile input ettigin bilgiyi enterladiginda sayfanin baska yere gitmesini engelledin. Enter yaptigin anda bilgiyi aldi entere gordu ve gonderimi ya da islevi durdurup basa dondu. yani girdigin texti hafizaya aldi ve bir yere gonderimi islevi durdurdu ve inputu bosaltti//
     let text = document.getElementById("todo-input") //inputu temsil eden "text" isminde degisken olusturuldu //
@@ -9,21 +10,27 @@ function addItem(event){  // fonksiyon olusturuldu
     text.value = ""; // burda inputa girdigin texti enterladiktan sonra input yeniden sifirlansin bos kalsin diye//
 }
 
+
+
+
+//az once getAdd ile input edilen bilgileri firebase yollamistik. simdi getItems ile de FireBase den bir onceki asamada yollanan verileri cekip todo liste yani browserdaki app'a listeliyor ya listeliyor//
 function getItems(){
-    db.collection("todo-items").onSnapshot((snapshot) => { //veri tabaninda degisiklik oldugunda 
-        console.log(snapshot);
-        let items = [];
-        snapshot.docs.forEach((doc) =>{
-            items.push({
-                id: doc.id,
-                ...doc.data()
-            })
+    db.collection("todo-items").onSnapshot((snapshot) => { // onSnapshot:"veri tabaninda olan ne varsa onlari veriyor" ,"onSnapshot" ile veriler geliyor ve sonra bunlari (olusturdugu "snapshot" degiskenine atiyor )
+        console.log(snapshot);                             //arrow function ile veriler geldikten sonra calisacak blogu tanimliyor. yani arrow function ile ben bunu yapicam diyorsun 
+        let items = [];             //items degiskeni olusturdu ve bunu dizi olarak olusturduk
+        snapshot.docs.forEach((doc) =>{     //snapshotun icerisinde docs ta dizi mevcut bu dizi icerisindeki her bir veri icin forEach ile donuyor ve donerkenki mevcut her veriyi "doc" un icine atiyor
+            items.push({                    //burda arrow function ile sirasiyle sunlar oluyor. itemslari "push" ile doc'un icine atilan her kaydi ya da satiri  items dizisinin icine sokusturuyoruz
+                id: doc.id,                 //id, firebasedeki o kaydin benzersiz id'si. yani kimlik numarasi. doc'un yani firebasede todo-items(kaydin temsil edildigi kisim)
+                ...doc.data()               //firebasede todo-items---->id----->status ve text e yani veriyi yayiyor ya da isliyor ya da listeliyor
+            })                              // doc.data ile status ve texte , doc.id ile de kimlik numarasina yani firebasedeki o uniek numaraya isleniyor
         })
 
-        let spans = document.querySelectorAll('.items-statuses span.active')
-        spans.forEach(typ => {
+        
+        //Gosterecegimiz kayitlarin tipini yani app ta navbarda sectigimiz ALL ya da Active ya da Completed'i sectigimizde bu sectigimizin orda gozukmesini sagliyor 
+        let span = document.querySelector('.items-statuses span.active') //burda "active" clasi olan spani aliyor
+        
             
-            switch(typ.dataset.id){
+            switch(span.dataset.id){    // html'de <span data-id="5">/span> => dataset.is <span data-ad="gokhan"></span> => dataset.ad
                 case "1":
                     atype = "all";
                     break;
@@ -37,11 +44,10 @@ function getItems(){
                     atype = "all"  
 
             }
-        })
-
+        
         
 
-        generateItems(items, atype);
+        generateItems(items, atype); //yukarida push ile sokusturdugun veriler ve atype ile hangi statusteki kayitlar oldugu
         
     })
 
@@ -176,9 +182,7 @@ function createEventListeners(){
 
     function deleteOne(id) {
         let item = db.collection("todo-items").doc(id);
-        // item.addEventListener("transitionend", function() {
-        //     item.delete();
-        // })
+        
         item.delete();
         
         // alert('deleted'+ JSON.stringify(db.collection("todo-items").doc(id)))
