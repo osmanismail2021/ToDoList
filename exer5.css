@@ -63,7 +63,7 @@ body {
   font-size: 70px;
   font-weight: bold;
   letter-spacing: 10px;
-  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-family: 'Times New Roman', Times, serif ;
 	-webkit-text-stroke: 1px rgb(240, 235, 235);
 	-webkit-text-fill-color: rgb(25, 16, 148);
 }

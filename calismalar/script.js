@@ -83,9 +83,8 @@ function generateItems(items, atype="all"){
     })
 
     var item = db.collection("todo-items").where("status", "==", "active" )
-    item.get().then(function (querySnapshot) {      //"get" ile yukarida belirtilen kosullara uygun olan kayitlari al yani "item icin belirlediklerin". burda "then" kayitlarin geldigini garanti ediyor. burda bu kayitlari querySnapshota parametresine(degiskenine) 
+    item.get().then(function (querySnapshot) {      //"get" ile yukarida belirtilen kosullara uygun olan kayitlari al yani "item icin belirlediklerin". burda "then" kayitlarin geldigini garanti ediyor. burda bu kayitlari querySnapshota parametresine(degiskenine) atiyor
         
-        atiyor.
         document.getElementById("itemsLeft").innerHTML = querySnapshot.docs.length + " items left" // querySnapshot a atanmis kayitlarin sayisini itemsLeft id'li html elementine yazdiriyoruz
         
         //console.log(querySnapshot.docs.length)

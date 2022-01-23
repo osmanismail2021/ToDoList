@@ -26,7 +26,7 @@ function getItems(){
 
         
          
-        let span = document.querySelector('.items-statuses span.active') //burda "active" clasi olan spani aliyor
+        let span = document.querySelector('.items-statuses span.active')
         
             
             switch(span.dataset.id){    
