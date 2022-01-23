@@ -171,13 +171,13 @@ function createEventListeners(){
 
     }
     
-    let todoCheckMarked = document.querySelectorAll(".todo-item .check-mark.checked");
-    todoCheckMarked.forEach((checkedMark)=>{
-        checkedMark.addEventListener("click", function(){
-            //alert("selam")
-            markUnCompleted(checkedMark.dataset.id);
-        });
-    });
+    // let todoCheckMarked = document.querySelectorAll(".todo-item .check-mark.checked");
+    // todoCheckMarked.forEach((checkedMark)=>{
+    //     checkedMark.addEventListener("click", function(){
+    //         //alert("selam")
+    //         markUnCompleted(checkedMark.dataset.id);
+    //     });
+    // });
 
 
     function deleteOne(id) {
@@ -207,25 +207,25 @@ function markCompleted(id){
 
 }
 
-function markUnCompleted(id){
+// function markUnCompleted(id){
     
-    let item = db.collection("todo-items").doc(id)
-    item.get().then(function(doc){
-        if(doc.exists){
-            let status = doc.data().status;
-            if(status == "completed"){
-                item.update({
-                    status: "active"
-                })
-            } else if(status == "active"){
-                item.update({
-                    status: "completed"
-                })
-            }
-        }
-    })
+//     let item = db.collection("todo-items").doc(id)
+//     item.get().then(function(doc){
+//         if(doc.exists){
+//             let status = doc.data().status;
+//             if(status == "completed"){
+//                 item.update({
+//                     status: "active"
+//                 })
+//             } else if(status == "active"){
+//                 item.update({
+//                     status: "completed"
+//                 })
+//             }
+//         }
+//     })
 
-}
+// }
 
 function compDeleter () {
     var item = db.collection("todo-items").where("status", "==", "completed" )
