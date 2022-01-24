@@ -60,12 +60,13 @@ body {
 .title {
   color: rgb(180, 30, 155);
   margin-left: 180px;
-  font-size: 70px;
+  margin-top: 15px;
+  font-size: 60px;
   font-weight: bold;
   letter-spacing: 10px;
-  font-family: 'Times New Roman', Times, serif ;
-	-webkit-text-stroke: 1px rgb(240, 235, 235);
-	-webkit-text-fill-color: rgb(25, 16, 148);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+	-webkit-text-fill-color: rgb(16, 8, 134);
 }
 
 .new-todo {
@@ -73,6 +74,7 @@ body {
   height: 70px;
   width: 615px;
   margin: 50px;
+  margin-top: 7px;
   margin-left: 30px;
   border-radius: 6px;
   display: flex;
