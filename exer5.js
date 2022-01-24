@@ -11,61 +11,65 @@ function addItem(event){
     text.value = ""; 
 }
 
-// let names = [
-//     "go to the park",
-//     "go to the gym",
-//     "go to the markt",
-//     "go to the cinema",
-//     "go to the theatre",
-//     "come to me",
-//     "come to us",
-//     "enjoy",
-//     "try it again",
-//     "ambulance",
-//     "taxi",
-// ];
-
-// let sortedNames = names.sort();
 
 
-// text = document.getElementById("todo-input");
 
-// text.addEventListener("keyup", (e) => {
-//     removeElements();
-//     for (let i of sortedNames) {
 
-//         if(
-//             i.toLowerCase().startsWith(text.value.toLowerCase()) && text.value != ""
-//         )
-//         {
+let names = [
+    "go to the park",
+    "go to the gym",
+    "go to the markt",
+    "go to the cinema",
+    "go to the theatre",
+    "come to me",
+    "come to us",
+    "enjoy",
+    "try it again",
+    "ambulance",
+    "taxi",
+];
 
-//             let listItem = createElement("li");
+let sortedNames = names.sort();
 
-//             listItem.classList.add("list-items");
-//             listItem.style.cursor = "pointer";
-//             listItem.setAttribute("onclick", "displayNames('" + i + "')");
 
-//             let word = "<b>" + i.substr(0, text.value.length) + "</b>";
-//             word += i.substr(text.value.length);
+var text = document.getElementById("todo-input");
 
-//             listItem.innerHTML = word;
-//             document.querySelector(".list").appendChild(listItem);
-//         }
-//     }
-// });
+text.addEventListener("keyup", (e) => {
+    removeElements();
+    for (let i of sortedNames) {
 
-// function displayNames(value) {
-//     text.value = value;
-//     removeElements();
-// }
+        if(
+            i.toLowerCase().startsWith(text.value.toLowerCase()) && text.value != ""
+        )
+        {
 
-// function removeElements() {
+            let listItem = document.createElement("li");
 
-//     let artikels = document.querySelectorAll(".list-items");
-//     artikels.forEach((artikel) => {
-//         artikel.remove();
-//     });
-// }
+            listItem.classList.add("list-items");
+            listItem.style.cursor = "pointer";
+            listItem.setAttribute("onclick", "displayNames('" + i + "')");
+
+            let word = "<b>" + i.substr(0, text.value.length) + "</b>";
+            word += i.substr(text.value.length);
+
+            listItem.innerHTML = word;
+            document.querySelector(".list").appendChild(listItem);
+        }
+    }
+});
+
+function displayNames(value) {
+    text.value = value;
+    removeElements();
+}
+
+function removeElements() {
+
+    let artikels = document.querySelectorAll(".list-items");
+    artikels.forEach((artikel) => {
+        artikel.remove();
+    });
+}
 
 
 

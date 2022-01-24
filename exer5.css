@@ -10,6 +10,7 @@ body {
   font-size: 18px;
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 
 /* .carousel-item {
@@ -146,6 +147,7 @@ body {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  
 }
 
 .new-todo-input form {
@@ -278,6 +280,50 @@ img.binmark {
   margin-left: 560px;
   margin-top: -60px;
   
+}
+
+form {
+  width: 75vmin;
+  height: 100%;
+  padding: 40px 0;
+}
+
+input[type="text"] {
+  width: 608px;
+  height: 60px;
+  margin-top: -29px;
+  margin-left: -29px;
+  position: absolute;
+  padding: 15px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #150a44;
+  font-size: 16px;
+  
+}
+ul {
+  list-style: none;
+}
+.list {
+  width: 616px;
+  background-color: #9c9ead;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1000;
+  margin-left: -33px;
+  margin-top: 30px;
+}
+.list-items {
+  padding: 10px 0px;
+  color: #150a44;
+  
+  
+  
+}
+.list-items:hover {
+  color:rgb(184, 36, 117);
+  font-weight: bold;
 }
 
 
