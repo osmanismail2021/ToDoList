@@ -64,8 +64,12 @@
 
             </div>
             <div class="new-todo-input">
-                <form onsubmit="addItem(event)">
-                    <input id="todo-input" type="text" placeholder="Create a new todo...">
+                <form onsubmit="addItem(event)", autocomplete="off">
+                   <div> 
+                       <input id="todo-input" type="text" placeholder="Create a new todo...">
+                   </div>
+
+                   <!-- <ul class="list"></ul> -->
 
                 </form>
 
