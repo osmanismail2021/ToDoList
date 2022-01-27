@@ -54,9 +54,12 @@ text.addEventListener("keyup", (e) => {
 
             listItem.innerHTML = word;
             document.querySelector(".list").appendChild(listItem);
+
+            
         }
     }
 });
+
 
 function displayNames(value) {
     text.value = value;
@@ -158,7 +161,7 @@ function generateItems(items, atype="all"){
 function createEventListeners(){
     let todoCheckMarks = document.querySelectorAll(".todo-item .check-mark");
     todoCheckMarks.forEach((checkMark)=>{
-        checkMark.addEventListener("click", function(){
+        checkMark.addEventListener("click", function() {
             markCompleted(checkMark.dataset.id);
         });
     });
